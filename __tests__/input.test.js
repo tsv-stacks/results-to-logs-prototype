@@ -37,3 +37,23 @@ describe("Input class", () => {
     });
 
 });
+
+describe('dilutionConvert', () => {
+    let input;
+
+    beforeEach(() => {
+        input = new Input(jest.fn)
+    });
+
+    it('converts dilution values to their corresponding powers of 10 in a standard format', () => {
+        input.dilution = ["N", -1, -2, -3, -4, -5];
+        input.dilutionConvert();
+        expect(input.dilutionArray).toEqual([1, 10, 100, 1000, 10000, 100000]);
+    });
+
+    it('converts dilution values to their corresponding powers of 10', () => {
+        input.dilution = [-1, -2, -3, "N", -10];
+        input.dilutionConvert();
+        expect(input.dilutionArray).toEqual([10, 100, 1000, 1, 10000000000]);
+    });
+});
