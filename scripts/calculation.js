@@ -1,4 +1,4 @@
-import { dataTable } from "./ref-table";
+const { dataTable } = require('../scripts/ref-table')
 
 class Result {
     constructor(result) {
