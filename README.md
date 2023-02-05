@@ -18,8 +18,10 @@ array of objects to store results
 calculate split into:
 
 1. input cleaning to usable format
-2. input to results
-3. results to logs
+2. pass through dilutions and convert to array
+3. use dilutions array to calculate results
+4. input to results
+5. results to logs
 
 future
 
