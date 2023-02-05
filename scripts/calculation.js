@@ -1,4 +1,4 @@
-import { dataTable } from "./ref-table";
+const { dataTable } = require('../scripts/ref-table')
 
 class Result {
     constructor(result) {
@@ -17,7 +17,11 @@ class Result {
             if (typeof array[i] === 'number' && Number.isInteger(array[i])) {
                 // true
                 // pull key from data-table
+
+                console.log(array[i])
+                console.log(dataTable.array[i])
                 let tableRef = dataTable.array[i]
+                console.log(tableRef)
             }
 
         }
