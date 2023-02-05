@@ -3,7 +3,9 @@ class Result {
         this.result = result;
     }
     // if results are zero output <10e
-
+    isAllZeros(array) {
+        return array.reduce((acc, cur) => acc && cur === 0, true);
+    }
 }
 
 function resultsToLog(input) {
