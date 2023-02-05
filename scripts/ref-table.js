@@ -141,3 +141,5 @@ var dataTable = {
     149: [6, 26],
     150: [6, 26]
 }
+
+module.exports = { dataTable }
