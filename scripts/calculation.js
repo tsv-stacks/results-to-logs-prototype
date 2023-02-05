@@ -17,13 +17,28 @@ class Result {
             if (typeof array[i] === 'number' && Number.isInteger(array[i])) {
                 // true
                 // pull key from data-table
+                let x = array[i]
+                // returns array from table
+                let tableRef = dataTable[x]
+                //define limits
+                let upperLimit = tableRef[1]
+                let lowerLimit = tableRef[0]
+                let nextDilution = array[i + 1]
+                // if statement to if nextdil is within limits
+                // make into new function and add in 3 paramters
 
-                console.log(array[i])
-                console.log(dataTable.array[i])
-                let tableRef = dataTable.array[i]
-                console.log(tableRef)
             }
 
+        }
+    }
+    //limit detection
+    limitCheck(x, lower, upper) {
+        if (x >= lower && x <= upper) {
+            console.log('within range')
+        }
+        else {
+            console.log('out of range')
+            return false
         }
     }
 }

@@ -26,3 +26,4 @@ future
 1. custom dilutions and calculations
 2. contamination
 3. spread plate option
+4. if no results are within limits

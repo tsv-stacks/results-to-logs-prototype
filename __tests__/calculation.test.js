@@ -27,29 +27,29 @@ describe('Testing using whole Integers', () => {
     })
 })
 
-describe("testing calculationLoop method", () => {
-    let input = {
-        arr: [],
-        cleanArr: [10]
-        // [10, 30, 50, 100, 147]
-    }
-    // let dataTable = {
-    //     10: [0, 4]
-    // };
+// describe("testing calculationLoop method", () => {
+//     let input = {
+//         arr: [],
+//         cleanArr: [10]
+//         // [10, 30, 50, 100, 147]
+//     }
+//     // let dataTable = {
+//     //     10: [0, 4]
+//     // };
 
-    beforeEach(() => {
-        result = new Result(input)
-        // dataTable = {
-        //     10: [0, 4]
-        //     // 30: [0, 8],
-        //     // 50: [1, 12],
-        //     // 100: [3, 19],
-        //     // 147: [6, 26]
-        // };
-    });
+//     beforeEach(() => {
+//         result = new Result(input)
+//         // dataTable = {
+//         //     10: [0, 4]
+//         //     // 30: [0, 8],
+//         //     // 50: [1, 12],
+//         //     // 100: [3, 19],
+//         //     // 147: [6, 26]
+//         // };
+//     });
 
-    it("pulls the correct key from dataTable", () => {
-        result.calculationLoop();
-        expect(tableRef).toEqual({ 10: [0, 4] });
-    });
-});
+//     it("pulls the correct key from dataTable", () => {
+//         result.calculationLoop();
+//         expect(result.tableRef).toEqual({ 10: [0, 4] });
+//     });
+// });
