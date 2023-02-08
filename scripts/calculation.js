@@ -14,19 +14,34 @@ class Result {
         let array = this.result.cleanArr
         for (let i = 0; i < array.length; i++) {
             // check if element in array is a number
-            if (typeof array[i] === 'number' && Number.isInteger(array[i])) {
+            if (this.isAllZeros() === true) {
+                console.log('results are all 0')
+                return "<10e"
+            }
+            else if (typeof array[i] === 'number' && Number.isInteger(array[i])) {
                 // true
                 // pull key from data-table
                 let x = array[i]
+                let xLog = this.result.dilutionArray[x]
                 // returns array from table
                 let tableRef = dataTable[x]
                 //define limits
                 let upperLimit = tableRef[1]
                 let lowerLimit = tableRef[0]
                 let nextDilution = array[i + 1]
+                let nextDilutionLog = this.result.dilutionArray[nextDilution]
                 // if statement to if nextdil is within limits
                 // make into new function and add in 3 paramters
-
+                if (this.limitCheck(x, lowerLimit, upperLimit) === true && nextDilution !== undefined) {
+                    return (x + nextDilution) / (xLog + nextDilutionLog)
+                } else if (this.limitCheck(x, lowerLimit, upperLimit) === true && nextDilution === undefined) {
+                    return x / xLog
+                } else if (this.limitCheck(x, lowerLimit, upperLimit) === false && nextDilution === undefined) {
+                    return x / xLog
+                } else {
+                    console.log('not in range')
+                    return
+                }
             }
 
         }
@@ -35,6 +50,7 @@ class Result {
     limitCheck(x, lower, upper) {
         if (x >= lower && x <= upper) {
             console.log('within range')
+            return true
         }
         else {
             console.log('out of range')
@@ -42,14 +58,5 @@ class Result {
         }
     }
 }
-
-// function resultsToLog(input) {
-//     if (isAllZeros(input) === true) {
-//         // if results are zero output <10e
-//         console.log('all 0')
-//         return true
-//     }
-// }
-
 
 module.exports = { Result }

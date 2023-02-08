@@ -29,3 +29,6 @@ future
 2. contamination
 3. spread plate option
 4. if no results are within limits
+5. Highlight calculations used for dilutions
+6. Add 'tab' to each input
+7. Add 'enter' to perform calculation

@@ -25,7 +25,36 @@ describe('Testing using whole Integers', () => {
         result = new Result(input)
         expect(result.isAllZeros()).toBe(false)
     })
+
+    it('Checks if results are all 0 and returns false if not true even if array does not contain numbers', () => {
+        input.cleanArr = [0, 0, "T", "T", "T"]
+        result = new Result(input)
+        expect(result.isAllZeros()).toBe(false)
+    })
+});
+
+describe('Testing the limitCheck function', () => {
+    let limit = new Result(jest.fn)
+
+    test('limitCheck correctly checks if value is within limit', () => {
+        const x = 2;
+        const lowerLimit = 1;
+        const upperLimit = 2;
+        const result = limit.limitCheck(x, lowerLimit, upperLimit);
+        expect(result).toBe(true);
+    });
+
+    test('limitCheck correctly returns false if value is not within limit', () => {
+        const x = 3;
+        const lowerLimit = 1;
+        const upperLimit = 2;
+        const result = limit.limitCheck(x, lowerLimit, upperLimit);
+        expect(result).toBe(false);
+    });
 })
+
+
+
 
 // describe("testing calculationLoop method", () => {
 //     let input = {
