@@ -32,3 +32,12 @@ future
 5. Highlight calculations used for dilutions
 6. Add 'tab' to each input
 7. Add 'enter' to perform calculation
+
+### Calculation Loop functionality
+
+(only tick if function and jest has been tested)
+
+- [x] detects if all zeroes and outputs "<10e" or "<1e"
+- [ ] if count is on final dilution use for calculation
+- [ ] correctly perform calculation
+- [ ] skip calculation if out of range but use if final one

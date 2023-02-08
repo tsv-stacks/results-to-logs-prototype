@@ -13,12 +13,13 @@ class Result {
     calculationLoop() {
         let array = this.result.cleanArr
         for (let i = 0; i < array.length; i++) {
-            // check if element in array is a number
+
             if (this.isAllZeros() === true) {
                 console.log('results are all 0')
-                return "<10e"
+                return `<${this.result.dilutionArray[0]}e`
             }
             else if (typeof array[i] === 'number' && Number.isInteger(array[i])) {
+                // check if element in array is a number
                 // true
                 // pull key from data-table
                 let x = array[i]
@@ -31,7 +32,6 @@ class Result {
                 let nextDilution = array[i + 1]
                 let nextDilutionLog = this.result.dilutionArray[nextDilution]
                 // if statement to if nextdil is within limits
-                // make into new function and add in 3 paramters
                 if (this.limitCheck(x, lowerLimit, upperLimit) === true && nextDilution !== undefined) {
                     return (x + nextDilution) / (xLog + nextDilutionLog)
                 } else if (this.limitCheck(x, lowerLimit, upperLimit) === true && nextDilution === undefined) {
