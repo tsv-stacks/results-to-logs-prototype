@@ -18,7 +18,9 @@ class Input {
     limitReplace() {
         let arr = this.replaceEmptyWithZero()
         for (let i = 0; i < arr.length; i++) {
-            if (arr[i] >= 150) {
+            if (i === arr.length - 1 && arr[i] >= 150) {
+                this.cleanArr.push(arr[i]);
+            } else if (arr[i] >= 150) {
                 arr[i] = "T";
                 this.cleanArr.push(arr[i])
             } else {

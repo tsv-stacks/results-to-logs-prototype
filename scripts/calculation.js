@@ -19,8 +19,10 @@ class Result {
             if (this.isAllZeros() === true) {
                 console.log('results are all 0')
                 return `<${this.result.dilutionArray[0]}e`
-            }
-            else if (typeof array[i] === 'number' && Number.isInteger(array[i])) {
+            } else if (array[i] == 'T') {
+                // function to skip over and continue loop
+                continue
+            } else if (typeof array[i] === 'number' && Number.isInteger(array[i])) {
                 // check if element in array is a number
                 // true
                 let nextDilution = array[i + 1]
@@ -32,8 +34,11 @@ class Result {
 
                 // add if statement for numbers < 10. check if next number is falsey and then calculate
 
-                // move to top?
+                // make it return as it means end of loop - no maxNum
                 // if (x < 10 && !nextDilution) { function } else if
+
+                //move this part to second if statement as maxNum needs to be performed
+
                 // if (x < 10){ x / xLog } go through and outputboth but use closest to other samples
 
                 // add if statement to account for final number in array
