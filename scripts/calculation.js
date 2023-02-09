@@ -16,7 +16,6 @@ class Result {
         let array = this.result.cleanArr
         let resultsArray = []
         for (let i = 0; i < array.length; i++) {
-
             if (this.isAllZeros() === true) {
                 console.log('results are all 0')
                 return `<${this.result.dilutionArray[0]}e`
@@ -30,6 +29,13 @@ class Result {
                 console.log(x);
                 // console.log(i);
                 // console.log(xLog);
+
+                // add if statement for numbers < 10. check if next number is falsey and then calculate
+
+                // move to top?
+                // if (x < 10 && !nextDilution) { function } else if
+                // if (x < 10){ x / xLog } go through and outputboth but use closest to other samples
+
                 // add if statement to account for final number in array
                 if (nextDilution === null || nextDilution === undefined) {
                     // test

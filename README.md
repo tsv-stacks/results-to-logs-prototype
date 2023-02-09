@@ -39,6 +39,7 @@ future
 (only tick if function and jest has been tested)
 
 - [x] detects if all zeroes and outputs "<10e" or "<1e"
+- [ ] if count is less than 10 and next count it not 0, then return both or closest to samples
 - [ ] if count is on final dilution use for calculation
 - [ ] correctly perform calculation
 - [ ] collate results and only return the highest value

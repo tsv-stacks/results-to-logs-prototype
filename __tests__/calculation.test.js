@@ -53,27 +53,6 @@ describe('Testing the limitCheck function', () => {
     });
 })
 
-
-
-
-describe("testing calculationLoop method", () => {
-    let input = {
-        cleanArr: [],
-        dilutionArray: [10, 100, 1000, 10000, 100000]
-    }
-
-    it("returns less than dilutionArray[0] if results are all 0", () => {
-        input.cleanArr = [0, 0, 0, 0, 0]
-        result = new Result(input)
-        expect(result.calculationLoop()).toEqual('<10e');
-    });
-
-    xit("pulls the correct key from dataTable", () => {
-        result.calculationLoop();
-        expect(result.tableRef).toEqual({ 10: [0, 4] });
-    });
-});
-
 describe('test.getMax', () => {
     const test = new Result(jest.fn)
 
@@ -114,4 +93,24 @@ describe("convertAndRound", () => {
     it("should round 0.0123 to 1.23e-2", () => {
         expect(test.convertAndRound(0.0123)).toBe("1.23e-2");
     });
+});
+
+describe("testing calculationLoop method", () => {
+    let input = {
+        cleanArr: [],
+        dilutionArray: [0.1, 0.01, 0.001, 0.0001, 0.00001]
+    }
+
+    it("returns less than dilutionArray[0] if results are all 0", () => {
+        input.cleanArr = [0, 0, 0, 0, 0]
+        result = new Result(input)
+        expect(result.calculationLoop()).toEqual('<10e');
+    });
+
+    it("returns correct results", () => {
+        input.cleanArr = [100, 10, 1, 0, 0]
+        result = new Result(input)
+        expect(result.calculationLoop()).toEqual('<1.00e+3');
+    });
+
 });
