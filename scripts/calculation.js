@@ -14,6 +14,7 @@ class Result {
     // for loop to do calculations
     calculationLoop() {
         let array = this.result.cleanArr
+        let resultsArray = []
         for (let i = 0; i < array.length; i++) {
 
             if (this.isAllZeros() === true) {
@@ -23,20 +24,32 @@ class Result {
             else if (typeof array[i] === 'number' && Number.isInteger(array[i])) {
                 // check if element in array is a number
                 // true
-                // pull key from data-table
+                let nextDilution = array[i + 1]
                 let x = array[i]
                 let xLog = this.result.dilutionArray[i]
                 console.log(x);
                 // console.log(i);
                 // console.log(xLog);
+                // add if statement to account for final number in array
+                if (nextDilution === null || nextDilution === undefined) {
+                    // test
+                    console.log('final number in array');
+                    let finalResult = x / xLog
+                    resultsArray.push(finalResult)
+                    console.log(this.getMax(resultsArray));
+                    return this.convertAndRound(this.getMax(resultsArray))
+                }
+
+                // continue loop
+
+
                 // returns array from table
                 let tableRef = dataTable[x]
                 console.log(tableRef);
                 //define limits
                 let upperLimit = tableRef[1]
                 let lowerLimit = tableRef[0]
-                // add if statement to account for final number in array
-                let nextDilution = array[i + 1]
+
                 // console.log('upper limit' + upperLimit);
                 // console.log('lower limit' + lowerLimit);
                 // console.log('nextdilut' + nextDilution);
@@ -45,7 +58,9 @@ class Result {
                 if (this.limitCheck(nextDilution, lowerLimit, upperLimit) === true && nextDilution !== undefined) {
                     console.log('if in range and not final number in array');
                     console.log(x, nextDilution, xLog, nextDilutionLog);
-                    return (x + nextDilution) / (xLog + nextDilutionLog)
+                    let res = (x + nextDilution) / (xLog + nextDilutionLog)
+                    resultsArray.push(res)
+                    return this.convertAndRound(this.getMax(resultsArray))
                 } else if (this.limitCheck(nextDilution, lowerLimit, upperLimit) === true && nextDilution === undefined) {
                     return x / xLog
                 } else if (this.limitCheck(nextDilution, lowerLimit, upperLimit) === false && nextDilution === undefined) {
@@ -80,8 +95,19 @@ class Result {
         }
         return max;
     }
-
+    //convert and round to 3sf
+    convertAndRound(num) {
+        if (num >= 999) {
+            let str = num.toExponential(2);
+            let [a, b] = str.split("e");
+            let aRounded = Number(a).toPrecision(3);
+            return `${aRounded}e${b}`;
+        } else {
+            return Number(num.toPrecision(3));
+        }
+    }
 }
+
 const inputTest = new Input([100, 10, 1, 0, 0], [-1, -2, -3, -4, -5])
 inputTest.dilutionConvert()
 inputTest.limitReplace()

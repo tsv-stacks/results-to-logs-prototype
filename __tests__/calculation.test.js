@@ -95,3 +95,23 @@ describe('test.getMax', () => {
         expect(result).toBe(0);
     });
 });
+
+describe("convertAndRound", () => {
+    const test = new Result(jest.fn)
+
+    it("should round 16000 to 1.6e4", () => {
+        expect(test.convertAndRound(16000)).toBe("1.6e4");
+    });
+
+    it("should round 123456 to 1.23e5", () => {
+        expect(test.convertAndRound(123456)).toBe("1.23e5");
+    });
+
+    it("should round 999.99 to 1000", () => {
+        expect(test.convertAndRound(999.99)).toBe(1000);
+    });
+
+    it("should round 0.0123 to 1.23e-2", () => {
+        expect(test.convertAndRound(0.0123)).toBe("1.23e-2");
+    });
+});

@@ -33,7 +33,7 @@ class Input {
             if (this.dilution[i] === "N") {
                 this.dilutionArray.push(1)
             } else {
-                let dilu = Math.pow(10, -(this.dilution[i]))
+                let dilu = Math.pow(0.1, -(this.dilution[i]))
                 dilu = Math.abs(dilu)
                 this.dilutionArray.push(dilu)
             }
