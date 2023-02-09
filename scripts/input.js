@@ -40,4 +40,8 @@ class Input {
     }
 }
 
-module.exports = { Input }
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = { Input };
+} else {
+    window.Input = Input;
+}

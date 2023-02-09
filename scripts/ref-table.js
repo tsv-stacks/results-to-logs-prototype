@@ -142,4 +142,8 @@ var dataTable = {
     150: [6, 26]
 }
 
-module.exports = { dataTable }
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = { dataTable };
+} else {
+    window.dataTable = dataTable;
+}

@@ -1,4 +1,4 @@
-const { dataTable } = require('../scripts/ref-table')
+// const { dataTable } = require('../scripts/ref-table')
 
 class Result {
     constructor(result) {
@@ -59,4 +59,8 @@ class Result {
     }
 }
 
-module.exports = { Result }
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = { Result };
+} else {
+    window.Result = Result;
+}

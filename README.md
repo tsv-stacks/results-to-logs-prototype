@@ -40,4 +40,5 @@ future
 - [x] detects if all zeroes and outputs "<10e" or "<1e"
 - [ ] if count is on final dilution use for calculation
 - [ ] correctly perform calculation
+- [ ] collate results and only return the highest value
 - [ ] skip calculation if out of range but use if final one
