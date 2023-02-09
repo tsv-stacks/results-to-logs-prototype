@@ -62,10 +62,6 @@ describe("testing calculationLoop method", () => {
         dilutionArray: [10, 100, 1000, 10000, 100000]
     }
 
-    // beforeEach(() => {
-    //     result = new Result(input)
-    // });
-
     it("returns less than dilutionArray[0] if results are all 0", () => {
         input.cleanArr = [0, 0, 0, 0, 0]
         result = new Result(input)
@@ -75,5 +71,27 @@ describe("testing calculationLoop method", () => {
     xit("pulls the correct key from dataTable", () => {
         result.calculationLoop();
         expect(result.tableRef).toEqual({ 10: [0, 4] });
+    });
+});
+
+describe('test.getMax', () => {
+    const test = new Result(jest.fn)
+
+    it('should return the highest number in an array', () => {
+        const numbers = [1, 2, 3, 4, 5];
+        const result = test.getMax(numbers);
+        expect(result).toBe(5);
+    });
+
+    it('should return the only number in an array of length 1', () => {
+        const numbers = [7];
+        const result = test.getMax(numbers);
+        expect(result).toBe(7);
+    });
+
+    it('should return 0 if the array is empty', () => {
+        const numbers = [];
+        const result = test.getMax(numbers);
+        expect(result).toBe(0);
     });
 });

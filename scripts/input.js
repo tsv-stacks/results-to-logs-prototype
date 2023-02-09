@@ -15,7 +15,7 @@ class Input {
         });
     }
     // convert any number over 150 to T
-    limitCheck() {
+    limitReplace() {
         let arr = this.replaceEmptyWithZero()
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] >= 150) {
@@ -25,6 +25,7 @@ class Input {
                 this.cleanArr.push(arr[i])
             }
         }
+        return this.cleanArr
     }
     // convert dilution array to array usable with calculations
     dilutionConvert() {

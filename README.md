@@ -32,6 +32,7 @@ future
 5. Highlight calculations used for dilutions
 6. Add 'tab' to each input
 7. Add 'enter' to perform calculation
+8. Webpack to allow code to run in browser and node env
 
 ### Calculation Loop functionality
 
