@@ -48,12 +48,12 @@ describe('dilutionConvert', () => {
     it('converts dilution values to their corresponding powers of 10 in a standard format', () => {
         input.dilution = ["N", -1, -2, -3, -4, -5];
         input.dilutionConvert();
-        expect(input.dilutionArray).toEqual([1, 10, 100, 1000, 10000, 100000]);
+        expect(input.dilutionArray).toEqual([1, 0.1, 0.01, 0.001, 0.0001, 0.00001]);
     });
 
     it('converts dilution values to their corresponding powers of 10', () => {
         input.dilution = [-1, -2, -3, "N", -10];
         input.dilutionConvert();
-        expect(input.dilutionArray).toEqual([10, 100, 1000, 1, 10000000000]);
+        expect(input.dilutionArray).toEqual([0.1, 0.01, 0.001, 1, 0.0000000001]);
     });
 });

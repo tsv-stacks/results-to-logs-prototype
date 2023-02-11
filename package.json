@@ -2,9 +2,10 @@
   "devDependencies": {
     "jest": "^29.4.1"
   },
-
-    "scripts": {
-      "test": "jest"
-    }
-
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.1.1"
+  }
 }
