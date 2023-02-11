@@ -1,3 +1,5 @@
+const BigNumber = require('bignumber.js');
+
 class Input {
     constructor(arr, dilution) {
         this.arr = arr;
@@ -35,7 +37,7 @@ class Input {
             if (this.dilution[i] === "N") {
                 this.dilutionArray.push(1)
             } else {
-                let dilu = Math.pow(0.1, -(this.dilution[i]))
+                let dilu = BigNumber(0.1).pow(-this.dilution[i])
                 dilu = Math.abs(dilu)
                 this.dilutionArray.push(dilu)
             }
