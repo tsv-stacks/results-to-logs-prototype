@@ -44,3 +44,4 @@ future
 - [ ] correctly perform calculation
 - [ ] collate results and only return the highest value
 - [ ] skip calculation if out of range but use if final one
+- [ ] write a bunch of jest tests for different scenarios and test

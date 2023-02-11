@@ -1,6 +1,6 @@
 // uncomment lines when running jest
-// const { dataTable } = require('../scripts/ref-table')
-// const { Input } = require("./input");
+const { dataTable } = require('../scripts/ref-table')
+const { Input } = require("./input");
 
 class Result {
     constructor(result) {

@@ -20,19 +20,19 @@ describe("Input class", () => {
 
     it('replaces values greater than or equal to 150 with "T"', () => {
         input = new Input([120, 140, 160, 170, 180]);
-        input.limitCheck();
-        expect(input.cleanArr).toEqual([120, 140, "T", "T", "T"]);
+        input.limitReplace();
+        expect(input.cleanArr).toEqual([120, 140, "T", "T", 180]);
     });
 
     it('handles mixed types of inputs', () => {
         input = new Input([120, "", 140, undefined, 160, 170]);
-        input.limitCheck();
-        expect(input.cleanArr).toEqual([120, 0, 140, 0, "T", "T"]);
+        input.limitReplace();
+        expect(input.cleanArr).toEqual([120, 0, 140, 0, "T", 170]);
     });
 
     it('handles all values being empty or undefined', () => {
         input = new Input([null, undefined, "", "", null]);
-        input.limitCheck();
+        input.limitReplace();
         expect(input.cleanArr).toEqual([0, 0, 0, 0, 0]);
     });
 
