@@ -79,15 +79,15 @@ describe("convertAndRound", () => {
     const test = new Result(jest.fn)
 
     it("should round 16000 to 1.6e4", () => {
-        expect(test.convertAndRound(16000)).toBe("1.60e4");
+        expect(test.convertAndRound(16000)).toBe("1.60e+4");
     });
 
     it("should round 123456 to 1.23e5", () => {
-        expect(test.convertAndRound(123456)).toBe("1.23e5");
+        expect(test.convertAndRound(123456)).toBe("1.23e+5");
     });
 
     it("should round 999.99 to 1000", () => {
-        expect(test.convertAndRound(999.99)).toBe(1000);
+        expect(test.convertAndRound(999.99)).toBe("1.00e+3");
     });
 
     it("no rounding if results are less than 999", () => {
@@ -107,10 +107,22 @@ describe("testing calculationLoop method", () => {
         expect(result.calculationLoop()).toEqual('<10e');
     });
 
-    it("returns correct results", () => {
+    it("returns correct results if test at -1 and in range", () => {
         input.cleanArr = [100, 10, 1, 0, 0]
         result = new Result(input)
         expect(result.calculationLoop()).toEqual('1.00e+3');
+    });
+
+    it("returns correct results if less than 10 on first dilution", () => {
+        input.cleanArr = [8, 0, 0, 0, 0]
+        result = new Result(input)
+        expect(result.calculationLoop()).toEqual('80e');
+    });
+
+    it("skips T and correct result if less than 10 on last dilution", () => {
+        input.cleanArr = ['T', 'T', 'T', 'T', 8]
+        result = new Result(input)
+        expect(result.calculationLoop()).toEqual('8.00e+5e');
     });
 
 });

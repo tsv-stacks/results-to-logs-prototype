@@ -33,6 +33,7 @@ future
 6. Add 'tab' to each input
 7. Add 'enter' to perform calculation
 8. Webpack to allow code to run in browser and node env
+9. Colours for each agar (e.g. PCA = red)
 
 ### Calculation Loop functionality
 
@@ -44,4 +45,6 @@ future
 - [ ] correctly perform calculation
 - [ ] collate results and only return the highest value
 - [ ] skip calculation if out of range but use if final one
+- [ ] if out of range on one calculation but in range for another: submit both?
+- [ ] if in range or out of range logic
 - [ ] write a bunch of jest tests for different scenarios and test

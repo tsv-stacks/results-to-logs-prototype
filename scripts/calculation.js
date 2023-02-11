@@ -18,7 +18,9 @@ class Result {
         for (let i = 0; i < array.length; i++) {
             if (this.isAllZeros() === true) {
                 console.log('results are all 0')
-                return `<${this.result.dilutionArray[0]}e`
+                let n = -1 * (this.result.dilutionArray[0].toString().split('.')[1].length);
+                let ans = Math.pow(0.1, n);
+                return `<${ans}e`
             } else if (array[i] == 'T') {
                 // function to skip over and continue loop
                 continue
