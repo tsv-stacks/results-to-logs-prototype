@@ -121,11 +121,13 @@ class Result {
     }
 }
 
-const inputTest = new Input([100, 10, 1, 0, 0], [-1, -2, -3, -4, -5])
-inputTest.dilutionConvert()
-inputTest.limitReplace()
-const resultTest = new Result(inputTest)
-console.log(resultTest.calculationLoop());
+// browser testing
+
+// const inputTest = new Input([100, 10, 1, 0, 0], [-1, -2, -3, -4, -5])
+// inputTest.dilutionConvert()
+// inputTest.limitReplace()
+// const resultTest = new Result(inputTest)
+// console.log(resultTest.calculationLoop());
 
 if (typeof module !== "undefined" && module.exports) {
     module.exports = { Result };

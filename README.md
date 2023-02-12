@@ -40,6 +40,7 @@ future
 (only tick if function and jest has been tested)
 
 - [x] detects if all zeroes and outputs "<10e" or "<1e"
+- [ ] set result to this.result
 - [ ] if count is less than 10 and next count it not 0, then return both or closest to samples
 - [ ] if count is on final dilution use for calculation
 - [ ] correctly perform calculation
@@ -48,3 +49,4 @@ future
 - [ ] if out of range on one calculation but in range for another: submit both?
 - [ ] if in range or out of range logic
 - [ ] write a bunch of jest tests for different scenarios and test
+- if out of range but there are results loop through again to find highest using single dilutions for results

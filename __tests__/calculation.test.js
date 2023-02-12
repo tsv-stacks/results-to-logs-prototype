@@ -1,5 +1,5 @@
 const { Result } = require('../scripts/calculation.js')
-const { dataTable } = require('../scripts/ref-table')
+// const { dataTable } = require('../scripts/ref-table')
 
 describe('Testing using whole Integers', () => {
     let result;
@@ -116,13 +116,19 @@ describe("testing calculationLoop method", () => {
     it("returns correct results if less than 10 on first dilution", () => {
         input.cleanArr = [8, 0, 0, 0, 0]
         result = new Result(input)
-        expect(result.calculationLoop()).toEqual('80e');
+        expect(result.calculationLoop()).toEqual('80 est.');
     });
 
     it("skips T and correct result if less than 10 on last dilution", () => {
         input.cleanArr = ['T', 'T', 'T', 'T', 8]
         result = new Result(input)
-        expect(result.calculationLoop()).toEqual('8.00e+5e');
+        expect(result.calculationLoop()).toEqual('8.00e+5 est.');
+    });
+
+    it("if all results are T use final dilution", () => {
+        input.cleanArr = ['T', 'T', 'T', 'T', 'T']
+        result = new Result(input)
+        expect(result.calculationLoop()).toEqual('>1.00e+6');
     });
 
 });
