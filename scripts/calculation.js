@@ -17,6 +17,7 @@ class Result {
         let resultsArray = []
         for (let i = 0; i < array.length; i++) {
             if (this.isAllZeros() === true) {
+                // results are all 0
                 console.log('results are all 0')
                 let n = -1 * (this.result.dilutionArray[0].toString().split('.')[1].length);
                 let ans = Math.pow(0.1, n);
@@ -30,7 +31,7 @@ class Result {
                 let nextDilution = array[i + 1]
                 let x = array[i]
                 let xLog = this.result.dilutionArray[i]
-                console.log(x);
+                // console.log(x);
                 // console.log(i);
                 // console.log(xLog);
 
